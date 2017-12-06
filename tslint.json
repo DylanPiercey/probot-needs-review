@@ -10,7 +10,8 @@
         "ordered-imports": false,
         "no-namespace": false,
         "variable-name": false,
-        "interface-over-type-literal": false
+        "interface-over-type-literal": false,
+        "no-console": false
     },
     "rulesDirectory": []
 }

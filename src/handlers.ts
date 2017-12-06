@@ -40,6 +40,12 @@ export async function onComment(ctx: T.Context) {
     username: comment.user.login
   });
 
+  console.log(
+    `got comment on issue: ${
+      issue.number
+    }. Is collaborator: ${isCollaborator}, already has label: ${hasExistingLabel}`
+  );
+
   if (!hasExistingLabel && !isCollaborator) {
     await addLabel(ctx, issue.number, label);
   }
