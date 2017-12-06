@@ -1,0 +1,61 @@
+{
+  "name": "probot-needs-review",
+  "description": "Add's 'status:needs-review' label to issues and pr's with recent comments.",
+  "version": "0.0.1",
+  "author": "Dylan Piercey <pierceydylan@gmail.com>",
+  "bugs": "https://github.com/DylanPiercey/probot-needs-review/issues",
+  "dependencies": {
+    "github": "^12.0.1",
+    "probot": "^3.0.2",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.5.3"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.55",
+    "coveralls": "^3.0.0",
+    "deepmerge": "^2.0.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "mocha": "^4.0.1",
+    "now": "^8.4.0",
+    "nyc": "^11.3.0",
+    "prettier": "^1.9.1",
+    "sinon": "^4.1.2",
+    "tslint": "^5.8.0",
+    "tslint-config-prettier": "^1.6.0"
+  },
+  "homepage": "https://github.com/DylanPiercey/probot-needs-review",
+  "keywords": [
+    "bot",
+    "github",
+    "issue",
+    "needs-review",
+    "probot",
+    "pullrequest"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "tslint -t codeFrame -c tslint.json",
+      "git add"
+    ]
+  },
+  "main": "server.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DylanPiercey/probot-needs-review"
+  },
+  "scripts": {
+    "coveralls": "cat coverage/lcov.info | coveralls",
+    "deploy": "now --public --dotenv=.env",
+    "format-all": "find {src,test} -name '*.ts' | xargs prettier --write",
+    "mocha": "mocha -r ts-node/register ./test/**/*.test.ts",
+    "precommit": "lint-staged && npm test",
+    "start": "probot run ./server.js",
+    "test": "nyc --extension=.ts --include=src/**/*.ts --reporter=lcov --reporter=text-summary npm run mocha",
+    "test-ci": "nyc --extension=.ts --include=src/**/*.ts --reporter=lcovonly --reporter=text npm run mocha"
+  }
+}

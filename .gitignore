@@ -1,0 +1,19 @@
+# Editor
+*.sublime*
+.vscode
+
+# OSX
+*.DS_Store
+
+# NPM
+node_modules
+npm-debug.log
+
+# Deployment
+.env
+*.private-key.pem
+
+# Coverage
+coverage
+.nyc_output
+
