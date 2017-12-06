@@ -2,6 +2,7 @@ import * as sinon from "sinon";
 import * as assert from "assert";
 import * as merge from "deepmerge";
 import { events, robot } from "./util";
+import { addLabel } from "../src/utils";
 
 describe("Probot: Needs-Review", () => {
   describe("Issues", () => {
@@ -79,7 +80,7 @@ describe("Probot: Needs-Review", () => {
         addLabels.calledWith({
           owner: "framework-xyz",
           repo: "xyz-website",
-          number: 1,
+          number: 3,
           labels: ["status:needs-review"]
         })
       );
