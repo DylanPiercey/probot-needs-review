@@ -45,7 +45,7 @@
       "created_at": "2017-11-13T19:02:59Z",
       "updated_at": "2017-12-06T17:57:03Z",
       "closed_at": null,
-      "author_association": "CONTRIBUTOR",
+      "author_association": "NONE",
       "pull_request": {
         "url": "https://api.github.com/repos/framework-xyz/xyz-website/pulls/3",
         "html_url": "https://github.com/framework-xyz/xyz-website/pull/3",

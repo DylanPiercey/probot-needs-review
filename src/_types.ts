@@ -27,6 +27,7 @@ export namespace Types {
       login: string;
       [x: string]: any;
     };
+    author_association: string;
     [x: string]: any;
   };
 

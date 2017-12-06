@@ -35,16 +35,7 @@ export async function onComment(ctx: T.Context) {
   const { comment, issue } = ctx.payload;
 
   const hasExistingLabel = includesLabel(issue, label);
-  const isCollaborator = await ctx.github.repos.checkCollaborator({
-    ...ctx.repo(),
-    username: comment.user.login
-  });
-
-  console.log(
-    `got comment on issue: ${
-      issue.number
-    }. Is collaborator: ${isCollaborator}, already has label: ${hasExistingLabel}`
-  );
+  const isCollaborator = comment.author_association === "CONTRIBUTOR";
 
   if (!hasExistingLabel && !isCollaborator) {
     await addLabel(ctx, issue.number, label);
